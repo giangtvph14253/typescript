@@ -1,8 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 const ShowInfo = (props) => {
-    console.log(props); //{name: "Tuan"}
-    return <p>Thong tin user {porps.age}</p>
+    console.log(props)
+    return <p>Thong tin user {props.age}</p>
 }
-
 export default ShowInfo
