@@ -21,7 +21,7 @@ function App() {
         {products.map((item,index) => <div>{item.name} 
           <button onClick={() => removeItem(item.id)}>Remove</button></div>
         )}
-        <ShowInfo name="Giang" age={29}/>
+        <ShowInfo name="Giang" age={20}/>
     </div>
   )
   
