@@ -4,13 +4,15 @@ import logo from './logo.svg'
 import './App.css'
 import ShowInfo from './components/ShowInfo'
 import type { ProductType } from './types/product';
-import { list, remove } from './api/product';
+import { add, list, remove } from './api/product';
 import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
 import WebsiteLayouts from './pages/layouts/WebsiteLayouts';
 import Product from './pages/Product';
 import Home from './pages/Home';
 import AdminLayouts from './pages/layouts/AdminLayouts';
 import Dashboarh from './pages/Dashboard';
+import "bootstrap/dist/css/bootstrap.min.css"
+import ProductAdd from './pages/ProductAdd';
 function App() {
     const [products, setProducts] = useState<ProductType[]>([]);
     // const [count, setCount] = useState<number>(0);
@@ -29,6 +31,12 @@ function App() {
         // reRender
         data && setProducts(products.filter(item => item._id !== data._id));
     }
+
+    const onHandleAdd = async (product: ProductType) => {
+        const {data} = await add(product);
+        setProducts([...products, data])
+    }
+
     return (
         <div className="App">
             {/* <table>
@@ -73,6 +81,7 @@ function App() {
                         <Route index element={<Navigate to="dasboard" />} />
                         <Route path='dashboard' element={<Dashboarh />} />
                         <Route path='product' element={<Product />} />
+                        <Route path='/admin/product/add' element={<ProductAdd onAdd={onHandleAdd} />} />
                     </Route>
                 </Routes>
             </main>
