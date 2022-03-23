@@ -1,0 +1,6 @@
+npm init vite@latest demo_ts -- --template react-ts
+cd demo_ts -> code .
+npm i
+npm i react-router-dom react-hook-form
+npm i axios
+json-server -w db.json -p 3001

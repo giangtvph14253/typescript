@@ -29,36 +29,16 @@ function App() {
         // xoa tren API
         const { data } = await remove(id);
         // reRender
-        data && setProducts(products.filter(item => item._id !== data._id));
+        data && setProducts(products.filter(item => item.id !== id));
     }
 
     const onHandleAdd = async (product: ProductType) => {
-        const {data} = await add(product);
+        const { data } = await add(product);
         setProducts([...products, data])
     }
 
     return (
         <div className="App">
-            {/* <table>
-        <thead>
-          <th>#</th>
-          <th>Name</th>
-          <th></th>
-        </thead>
-        <tbody>
-          {products.map((item, index) => {
-            return <tr>
-                    <td>{index + 1}</td>
-                    <td>{item.name}</td>
-                    <td>
-                      <button onClick={() => removeItem(item._id)}>Remove</button>
-                    </td>
-                  </tr>
-          })}
-          
-        </tbody>
-      </table> */}
-
             <header>
                 <ul>
                     <li><NavLink to="/">Home Page</NavLink></li>
@@ -68,10 +48,6 @@ function App() {
             </header>
             <main>
                 <Routes>
-                    {/* <Route path="/" element={<h1>Home Page</h1>} />
-                    <Route path="product" element={<h1>Product Page</h1>} />
-                    <Route path="about" element={<h1>About</h1>} /> */}
-
                     <Route path='/' element={<WebsiteLayouts />}>
                         <Route index element={<Home />} />
                         <Route path='product' element={<Product />} />
