@@ -1,22 +1,24 @@
+
 import React from 'react'
 import { Outlet } from 'react-router-dom'
+import Header from '../../components/Header'
 
 type Props = {}
 
-const WebsiteLayouts = (props: Props) => {
+const WebsiteLayout = (props: Props) => {
   return (
     <div>
-        <header>
-            Header Admin
-        </header>
-        <aside>
-            Menu Admin
-        </aside>
-        <main>
-            <Outlet />
-        </main>
+      <header>
+        <Header />
+      </header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>
+        Footer
+      </footer>
     </div>
   )
 }
 
-export default WebsiteLayouts
+export default WebsiteLayout

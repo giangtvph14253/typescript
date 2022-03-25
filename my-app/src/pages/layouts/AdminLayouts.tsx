@@ -3,20 +3,20 @@ import { Outlet } from 'react-router-dom'
 
 type Props = {}
 
-const AdminLayouts = (props: Props) => {
+const AdminLayout = (props: Props) => {
   return (
     <div>
-        <header>
-            Header Website
-        </header>
-        <main>
-            <Outlet />
-        </main>
-        <footer>
-            Footer
-        </footer>
+      <header>
+        Header admin
+      </header>
+      <aside>
+        Menu Admin
+      </aside>
+      <main>
+        <Outlet />
+      </main>
     </div>
   )
 }
 
-export default AdminLayouts
+export default AdminLayout
