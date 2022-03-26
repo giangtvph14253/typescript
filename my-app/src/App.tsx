@@ -18,6 +18,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import ProductAdd from './pages/ProductAdd';
 import ProductEdit from './pages/ProductEdit';
 import { ConfigProvider } from 'antd';
+import Test from './components/Test';
+import PrivateRouter from './components/PrivateRouter';
 
 ConfigProvider.config({
     theme: {
@@ -59,8 +61,9 @@ function App() {
             <Route path="/" element={<WebsiteLayout />}>
                 <Route index element={<Home />} />
                 <Route path="product" element={<Product />} />
+                <Route path="login" element={<h1>Login page</h1>} />
             </Route>
-            <Route path="admin" element={<AdminLayout />}>
+            <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
                 <Route index element={<Navigate to="dashboard" />} />
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="product">
