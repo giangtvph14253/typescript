@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server -w -p 3001 db.json"
   },
   "dependencies": {
     "antd": "^4.19.3",
